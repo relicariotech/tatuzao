@@ -1,24 +1,24 @@
 
-## Obtaining the tatuzao's codebase
+## Obtendo o código do tatuzao
 git clone https://github.com/relicariotech/tatuzao.git
 
 `cd tatuzao`
 
-Open on your Editor. We recommend using Visual Studio Code.
+Abra o seu editor favorito. Nós recomendamos o utilizar Visual Studio Code.
 
 ## Conteiners services
-On your terminal, execute the command to run the docker-compose locally:
+No seu terminal, execute o comando abaixo para processar o docker-compose localmente:
 
 `docker-compose -f docker-compose.yml up --build`
 
 
-Two conteiners will be up and running. These conteiners are described on docker-compose.yml.
+Dois conteineres serão `up and running`. Esses são os conteineres descritos no `docker-compose.yml`.
 - web
 - db
 
-## Other Commands
+## Outros Commands - nativos do Django
 
-After setting up the conteiners, execute the following commands:
+Após configurar os conteiners, execute os comandos abaixo para criar as tabelas nativas do Django e criar o usuário `superuser`:
 
 `docker-compose -f docker-compose.yml exec web python manage.py makemigrations` 
 
@@ -26,7 +26,31 @@ After setting up the conteiners, execute the following commands:
 
 `docker-compose -f docker-compose.yml exec web python manage.py createsuperuser`
 
-At this point, tatuzao application will be running and with your superuser.
+Nesse ponto, a aplicação `tatuzao` estará com o seu usuário superuser.
 
-## Creating basic elements
-Login on /admin interface based on your environment.
+##  Executando os comando a partir do container
+
+Uma melhor abordagem é acessar diretamente o conteiner, e a partir dele, executar os comandos do Django.
+
+Liste todos os conteineres em operação.
+```
+docker ps
+````
+
+Copie o Id do container `tatuzao-web`.
+
+Execute o comando abaixo para acessar o conteiner.
+```
+docker exec -it <container-id> /bin/bash
+````
+
+Agora você está dentro do `bash` do conteiner, podendo executar os comando dessa forma:
+
+`python manage.py makemigrations` 
+
+`python manage.py migrate`
+
+`python manage.py createsuperuser`
+
+## Acessando o admin do Django
+Realize o login através do /admin.

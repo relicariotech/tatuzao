@@ -8,7 +8,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('app', '0001_initial'),
+        ('frota', '0001_initial'),
     ]
 
     operations = [
@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('is_active', models.BooleanField(default=True)),
                 ('assembled_on', models.DateTimeField(blank=True, default=datetime.datetime.now)),
                 ('cod_serie', models.CharField(default='00000000000000', max_length=14)),
-                ('cliente', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='equipamento', to='app.cliente')),
+                ('cliente', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='equipamento', to='frota.cliente')),
             ],
             options={
                 'verbose_name_plural': 'Equipamento',

@@ -81,7 +81,7 @@ class Equipamento(models.Model):
     )
 
     class Meta:
-      verbose_name_plural = "Equipamento"
+      verbose_name_plural = "Equipamentos"
 
     def __str__(self):
         """String for representing the Model object."""

@@ -98,6 +98,10 @@ class Equipamento(models.Model):
     )
     
     categoria = models.ForeignKey('Categoria', related_name='equipamento', on_delete=models.SET_NULL, null=True)
+    
+    frota = models.ForeignKey('Frota', related_name='frota', on_delete=models.SET_NULL, null=True)
+    
+    processo = models.ForeignKey('Processo', related_name='processo', on_delete=models.SET_NULL, null=True)
 
     is_active = models.BooleanField(default=True, null=False)
 

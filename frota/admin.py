@@ -15,7 +15,7 @@ class ClienteAdmin(admin.ModelAdmin):
 
 @admin.register(Equipamento)
 class EquipamentoAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'categoria', 'cliente', 'is_active', 'assembled_on')
+    list_display = ('nome', 'categoria', 'frota', 'processo', 'cliente', 'is_active', 'assembled_on')
 
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):

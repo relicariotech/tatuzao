@@ -1,3 +1,4 @@
+import uuid
 from datetime import datetime, timedelta
 
 from django.db import models
@@ -6,6 +7,7 @@ from django.utils import timezone
 
 # Create your models here.
 class Cliente(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     cnpj = models.CharField(
         unique=True,
         max_length=14,
@@ -47,6 +49,7 @@ class Cliente(models.Model):
         return reverse('cliente_detail', args=[str(self.id)])
     
 class Categoria(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     nome = models.CharField(
         unique=True,
         max_length=50,
@@ -59,6 +62,7 @@ class Categoria(models.Model):
         return self.nome
 
 class Equipamento(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     cliente = models.ForeignKey('Cliente', related_name='equipamento', on_delete=models.CASCADE, null=True)
     nome = models.CharField(
         unique=True,

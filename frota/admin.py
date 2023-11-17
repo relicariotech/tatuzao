@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from frota.models import Cliente, Equipamento, Categoria
+from frota.models import Cliente, Equipamento, Categoria, Frota, Processo
 
 class EquipamentoInline(admin.TabularInline):
     model = Equipamento
@@ -19,4 +19,12 @@ class EquipamentoAdmin(admin.ModelAdmin):
 
 @admin.register(Categoria)
 class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome')
+
+@admin.register(Frota)
+class FrotaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nome')
+
+@admin.register(Processo)
+class ProcessoAdmin(admin.ModelAdmin):
     list_display = ('id', 'nome')

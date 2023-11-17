@@ -60,6 +60,32 @@ class Categoria(models.Model):
     def __str__(self):
         """String for representing the Model object."""
         return self.nome
+    
+class Frota(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    nome = models.CharField(
+        unique=True,
+        max_length=50,
+        null=False,
+        blank=False,
+    )
+    
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.nome
+    
+class Processo(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    nome = models.CharField(
+        unique=True,
+        max_length=50,
+        null=False,
+        blank=False,
+    )
+    
+    def __str__(self):
+        """String for representing the Model object."""
+        return self.nome
 
 class Equipamento(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
